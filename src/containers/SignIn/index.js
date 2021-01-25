@@ -4,13 +4,25 @@ import { Container, Form, Button, Row, Col } from 'react-bootstrap'
 import Layout from '../../component/Layout'
 import Input from '../../component/UI/Input'
 
+import { login } from '../../actions/'
+import { useDispatch } from 'react-redux'
+
 function SignIn() {
+  const dispatch = useDispatch()
+  const userLogin = (e) => {
+    e.preventDefault()
+    const user = {
+      email: 'nabeltaariq@gmail.com',
+      password: '123456',
+    }
+    dispatch(login(user))
+  }
   return (
     <Layout>
       <Container>
         <Row>
           <Col md={{ span: 6, offset: 3 }} style={{ marginTop: '50px' }}>
-            <Form>
+            <Form onSubmit={userLogin}>
               <Input
                 type='email'
                 label='Email address'
