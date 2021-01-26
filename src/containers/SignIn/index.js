@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 import { Container, Form, Button, Row, Col } from 'react-bootstrap'
 import Layout from '../../component/Layout'
@@ -8,12 +8,15 @@ import { login } from '../../actions/'
 import { useDispatch } from 'react-redux'
 
 function SignIn() {
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+  const [error, setError] = useState('')
   const dispatch = useDispatch()
   const userLogin = (e) => {
     e.preventDefault()
     const user = {
-      email: 'nabeltaariq@gmail.com',
-      password: '123456',
+      email,
+      password,
     }
     dispatch(login(user))
   }
@@ -27,15 +30,17 @@ function SignIn() {
                 type='email'
                 label='Email address'
                 placeholder='Enter email'
+                value={email}
                 errors=" We'll never share your email with anyone else."
-                onChange={() => {}}
+                onChange={(e) => setEmail(e.target.value)}
               />
 
               <Input
                 type='password'
                 label='Password'
+                value={password}
                 placeholder='Enter password'
-                onChange={() => {}}
+                onChange={(e) => setPassword(e.target.value)}
               />
 
               <Button variant='primary' type='submit'>
