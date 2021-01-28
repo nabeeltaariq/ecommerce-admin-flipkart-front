@@ -1,11 +1,23 @@
-import React from 'react'
-import { Jumbotron } from 'react-bootstrap'
+import React, { useEffect } from 'react'
+import { Col, Container, Jumbotron, Row } from 'react-bootstrap'
 import Layout from '../../component/Layout'
+import './style.css'
 
 function Home() {
   return (
     <Layout>
-      <Jumbotron
+      <Container fluid>
+        <Row>
+          <Col md={2} className='sidebar'>
+            Side Bar
+          </Col>
+          <Col md={10} style={{ marginLeft: 'auto' }}>
+            Container
+          </Col>
+        </Row>
+      </Container>
+
+      {/* <Jumbotron
         style={{ margin: '5rem', background: 'white' }}
         className='text-centered'
       >
@@ -21,7 +33,7 @@ function Home() {
           more recently with desktop publishing software like Aldus PageMaker
           including versions of Lorem Ipsum.
         </p>
-      </Jumbotron>
+      </Jumbotron> */}
     </Layout>
   )
 }

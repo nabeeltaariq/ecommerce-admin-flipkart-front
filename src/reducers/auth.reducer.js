@@ -34,6 +34,10 @@ export default (state = initState, action) => {
         authenticating: false,
       }
       break
+    case authConstants.LOGOUT_REQUEST:
+      state = {
+        ...initState,
+      }
   }
 
   return state
