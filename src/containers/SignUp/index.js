@@ -1,12 +1,20 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Col, Container, Form, Row, Button } from 'react-bootstrap'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { Redirect } from 'react-router-dom'
 import Layout from '../../component/Layout'
 import Input from '../../component/UI/Input'
 
 function SignUp() {
+  const [firstName, setFirstName] = useState('')
+  const [lastName, setLastName] = useState('')
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+  const [error, setError] = useState('')
   const auth = useSelector((state) => state.auth)
+  const user = useSelector((state) => state.user)
+  const dispatch = useDispatch()
+
   if (!auth.authenticate) {
     return <Redirect to={'/'}></Redirect>
   }
