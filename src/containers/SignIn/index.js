@@ -14,18 +14,21 @@ function SignIn() {
   const [error, setError] = useState('')
   const auth = useSelector((state) => state.auth)
   const dispatch = useDispatch()
-
   const userLogin = (e) => {
     e.preventDefault()
+
     const user = {
       email,
       password,
     }
+
     dispatch(login(user))
   }
 
   if (auth.authenticate) {
     return <Redirect to={'/'} />
+  } else {
+    ;<Redirect to={'/signin'} />
   }
   return (
     <Layout>

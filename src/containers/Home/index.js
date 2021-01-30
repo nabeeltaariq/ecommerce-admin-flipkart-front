@@ -18,7 +18,7 @@ function Home() {
       </Container>
 
       {/* <Jumbotron
-        style={{ margin: '5rem', background: 'white' }}
+        style={{ margin: ' 5rem ', background: 'white' }}
         className='text-centered'
       >
         <h1>Welcome to Admin Dashboard</h1>

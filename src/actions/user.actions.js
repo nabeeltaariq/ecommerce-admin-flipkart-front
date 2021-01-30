@@ -10,7 +10,7 @@ export const signup = (user) => {
       ...user,
     })
 
-    if (res.status === 201) {
+    if (res.status === 200) {
       const { message } = res.data
       dispatch({
         type: userContants.USER_REGISTER_SUCCESS,
