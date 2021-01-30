@@ -9,6 +9,8 @@ import { useEffect } from 'react'
 
 import { useDispatch, useSelector } from 'react-redux'
 import { isUserLoggedIn } from './actions'
+import Products from './containers/Products'
+import Orders from './containers/Orders'
 
 function App() {
   const dispatch = useDispatch()
@@ -23,8 +25,10 @@ function App() {
     <div className='app'>
       <Switch>
         <PrivateRoute path='/' exact component={Home}></PrivateRoute>
-        <Route path='/signin' exact component={SignIn}></Route>
-        <Route path='/signup' exact component={SignUp}></Route>
+        <PrivateRoute path='/products' component={Products}></PrivateRoute>
+        <PrivateRoute path='/orders' component={Orders}></PrivateRoute>
+        <Route path='/signin' component={SignIn}></Route>
+        <Route path='/signup' component={SignUp}></Route>
       </Switch>
     </div>
   )

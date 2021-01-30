@@ -34,7 +34,7 @@ function SignIn() {
     <Layout>
       <Container>
         <Row>
-          <Col md={{ span: 6, offset: 3 }} style={{ marginTop: '50px' }}>
+          <Col md={{ span: 6, offset: 3 }} style={{ marginTop: '90px' }}>
             <Form onSubmit={userLogin}>
               <Input
                 type='email'

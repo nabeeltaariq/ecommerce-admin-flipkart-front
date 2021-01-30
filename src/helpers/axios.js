@@ -1,11 +1,12 @@
 import axios from 'axios'
 import { api } from '../urlConfig'
 
-const axiosInstance = axios.create({
+const token = window.localStorage.getItem('token')
+
+const axiosIntance = axios.create({
   baseURL: api,
   headers: {
-    'Access-Control-Allow-Origin': '*',
-    'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE,PATCH,OPTIONS',
+    Authorization: token ? `Bearer ${token}` : '',
   },
 })
-export default axiosInstance
+export default axiosIntance
