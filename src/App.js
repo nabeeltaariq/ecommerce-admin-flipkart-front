@@ -11,6 +11,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { isUserLoggedIn } from './actions'
 import Products from './containers/Products'
 import Orders from './containers/Orders'
+import Category from './containers/Category'
 
 function App() {
   const dispatch = useDispatch()
@@ -25,6 +26,7 @@ function App() {
     <div className='app'>
       <Switch>
         <PrivateRoute path='/' exact component={Home}></PrivateRoute>
+        <PrivateRoute path='/category' component={Category}></PrivateRoute>
         <PrivateRoute path='/products' component={Products}></PrivateRoute>
         <PrivateRoute path='/orders' component={Orders}></PrivateRoute>
         <Route path='/signin' component={SignIn}></Route>

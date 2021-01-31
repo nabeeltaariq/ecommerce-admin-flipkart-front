@@ -23,6 +23,12 @@ const Layout = (props) => {
                   </NavLink>
                 </li>
                 <li>
+                  <NavLink exact to={`/category`}>
+                    Category
+                  </NavLink>
+                </li>
+
+                <li>
                   <NavLink to={`/products`}>Products</NavLink>
                 </li>
                 <li>
