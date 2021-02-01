@@ -1,4 +1,5 @@
 import Layout from './component/Layout'
+import React from 'react'
 import './App.css'
 import { BrowserRouter as Roter, Route, Switch } from 'react-router-dom'
 import Home from './containers/Home/index'

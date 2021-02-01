@@ -28,7 +28,7 @@ function SignIn() {
   if (auth.authenticate) {
     return <Redirect to={'/'} />
   } else {
-    ;<Redirect to={'/signin'} />
+    return <Redirect to={'/signin'} />
   }
   return (
     <Layout>

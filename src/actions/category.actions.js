@@ -9,7 +9,7 @@ export const getAllCategories = () => {
     if (res.status === 200) {
       dispatch({
         type: categoryConstants.GET_ALL_CATEGORIES_SUCCESS,
-        payload: { categories: res.data },
+        payload: { categories: res.data.categoryList },
       })
     } else {
       dispatch({

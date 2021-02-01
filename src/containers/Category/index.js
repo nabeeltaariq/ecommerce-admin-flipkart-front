@@ -10,15 +10,25 @@ function Category() {
   const category = useSelector((state) => state.category)
   useEffect(() => {
     dispatch(getAllCategories())
+    console.log('ran')
   }, [])
 
   console.log(category.categories.categoryList)
   const renderCategories = (categories) => {
-    let cat = []
-    categories.forEach((category) => {
-      cat.push(<li key={category.name}> {category.name}</li>)
-    })
-    return cat
+    let myCategories = []
+    for (let category of categories) {
+      myCategories.push(
+        <li key={category.name}>
+          {category.name}
+          {category.children.length > 0 ? (
+            <ul>{renderCategories(category.children)} </ul>
+          ) : (
+            ''
+          )}
+        </li>
+      )
+    }
+    return myCategories
   }
 
   return (
@@ -32,7 +42,7 @@ function Category() {
             </div>
           </Col>
         </Row>
-        <Col md={12}>{renderCategories(category.categories.categoryList)}</Col>
+        <Col md={12}>{renderCategories(category.categories)}</Col>
       </Container>
     </Layout>
   )
