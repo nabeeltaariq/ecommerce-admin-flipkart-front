@@ -1,19 +1,24 @@
-import React, { useEffect, useState } from 'react'
-
-import { Container, Form, Button, Row, Col } from 'react-bootstrap'
-import Layout from '../../component/Layout'
-import Input from '../../component/UI/Input'
-
+import React, { useState, useEffect } from 'react'
+import Layout from '../../component/Layout/index'
+import { Container, Form, Row, Col, Button } from 'react-bootstrap'
+import Input from '../../component/UI/Input/index'
+import { login } from '../../actions'
 import { useDispatch, useSelector } from 'react-redux'
 import { Redirect } from 'react-router-dom'
-import { login } from '../../actions'
 
-function SignIn() {
+/**
+ * @author
+ * @function Signin
+ **/
+
+const Signin = (props) => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [error, setError] = useState('')
   const auth = useSelector((state) => state.auth)
+
   const dispatch = useDispatch()
+
   const userLogin = (e) => {
     e.preventDefault()
 
@@ -26,33 +31,30 @@ function SignIn() {
   }
 
   if (auth.authenticate) {
-    return <Redirect to={'/'} />
-  } else {
-    return <Redirect to={'/signin'} />
+    return <Redirect to={`/`} />
   }
+
   return (
     <Layout>
       <Container>
-        <Row>
-          <Col md={{ span: 6, offset: 3 }} style={{ marginTop: '90px' }}>
+        <Row style={{ marginTop: '50px' }}>
+          <Col md={{ span: 6, offset: 3 }}>
             <Form onSubmit={userLogin}>
               <Input
-                type='email'
-                label='Email address'
-                placeholder='Enter email'
+                label='Email'
+                placeholder='Email'
                 value={email}
-                errors=" We'll never share your email with anyone else."
+                type='email'
                 onChange={(e) => setEmail(e.target.value)}
               />
 
               <Input
-                type='password'
                 label='Password'
+                placeholder='Password'
                 value={password}
-                placeholder='Enter password'
+                type='password'
                 onChange={(e) => setPassword(e.target.value)}
               />
-
               <Button variant='primary' type='submit'>
                 Submit
               </Button>
@@ -64,4 +66,4 @@ function SignIn() {
   )
 }
 
-export default SignIn
+export default Signin
